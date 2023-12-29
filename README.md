@@ -1,3 +1,4 @@
+<pre>
 #Cначала развернем виртуальные сервера на hetzner cloud с помощу Terraform
 #Для этого на hCloud https://console.hetzner.cloud/projects нужно создать новый проект 
 #и сгенерировать для него https://console.hetzner.cloud/projects/$projects_id/security/tokens API Token.
@@ -236,4 +237,4 @@ helm install postgres --version 13.2.26 oci://registry-1.docker.io/bitnamicharts
 kubectl get pv
 
 #при необходимости обезопасить записи с бд от случайного удаления рекоменовано замени опции persistentVolumeReclaimPolicy: Delete на Retain
-
+</pre>
