@@ -1,3 +1,4 @@
+![k8s](https://github.com/alexandrdarkwind/TEST_K8S_Cluster/assets/123112359/d81ad552-aaab-4ef3-bb11-9019f62d5898)
 <pre>
 #Cначала развернем виртуальные сервера на hetzner cloud с помощу Terraform
 #Для этого на hCloud https://console.hetzner.cloud/projects нужно создать новый проект 
