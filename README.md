@@ -15,9 +15,9 @@ cd ./terraform
 terraform init
 terraform plan
 
-#Все настройки вжати в файле hetzner.tf.
-#По умолчанию создаст 4-х ноды с ресурсами cx21, изменить это можно в переменой "servers".
-#Для дальнейших настроек по умолчанию 1-я нода расчитана как чистая машина с которой можно провести все дальнейшие настройки кластера, а три оставшиеся непосредствено для развертивания k8s.
+#Все настройки собрани в файле hetzner.tf.
+#По умолчанию создаст 4 ноды с ресурсами cx21, изменить это можно в переменой "servers".
+#Для дальнейших настроек по умолчанию 1-я нода расчитана как чистая машина, с которой можно провести все дальнейшие настройки кластера, а три оставшиеся непосредствено для развертивания k8s.
 
 #После успешной проверки запускаем
 
@@ -49,16 +49,16 @@ sudo pip install -r requirements.txt
 #которые одновременно будут мастерами и воркерами, а также etcd (при возможности лучше конечно воркеров вынести на отдельние физически сервера либо виртуалки)
 #приводим до следующего вида (номерацию нод можно изменить, приводиться пример который был использован при последней сборке):
 vin ./inventory/sample/inventory.ini
-# ## Configure 'ip' variable to bind kubernetes services on a
-# ## different ip than the default iface
-# ## We should set etcd_member_name for etcd cluster. The node that is not a etcd member do not need to set the value, or can set the empty string value.
+### Configure 'ip' variable to bind kubernetes services on a
+### different ip than the default iface
+### We should set etcd_member_name for etcd cluster. The node that is not a etcd member do not need to set the value, or can set the empty string value.
 [all]
  node2 ansible_host=$IP_node1
  node3 ansible_host=$IP_node2
  node4 ansible_host=$IP_node3
 
 
-# ## configure a bastion host if your nodes are not directly reachable
+### configure a bastion host if your nodes are not directly reachable
 # [bastion]
 # bastion ansible_host=x.x.x.x ansible_user=some_user
 
