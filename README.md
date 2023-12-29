@@ -27,7 +27,8 @@ terraform apply
 #terraform кроме того что развернет 4 ноди с уже зарошеными на них публичными ключями, также проведет индексирование хедеров ядра
 #apt-get update && apt-get install -y linux-headers-$(uname -r)
 #что понадобиться для последующей настройки LINSTOR на серверах
-
+</pre>
+<pre>
 cd ../
 #k8s кластер будем розворачивать через ansible модулем kubespray
 #Очень важно на машину с которой будет вестись установка заранее установить подходящие версии pyton pip и ansible (последний заранее можно не ставить)
@@ -107,8 +108,8 @@ kubeadm token list
 #После получения файла конфига експортируем его для kubectl на рабочей машине с которой планируем работать с кластером
 set KUBECONFIG=kubeconfig.conf
 kubectl config view
-
-
+</pre>
+<pre>
 #дальше можем начать уже настройки внутри кластера k8s
 
 #Для дальнейших настроек нужно сменить директорию на скачанную (https://github.com/alexandrdarkwind/TEST_K8S_Cluster/kub-conf/)
@@ -142,8 +143,8 @@ helm install traefik traefik/traefik --namespace traefik --create-namespace  -f 
 #EOF
 
 kubectl apply -f /traefik/traefik-configmap.yaml
-
-
+</pre>
+<pre>
 #установка kubernetes-dashboard для проверки пробросов портов внутрь pods
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
@@ -168,8 +169,8 @@ spec:
         path: /
         pathType: ImplementationSpecific
 ###
-
-
+</pre>
+<pre>
 #Установка LINSTOR через piraeus-operator
 
 kubectl apply --server-side -k "https://github.com/piraeusdatastore/piraeus-operator//config/default?ref=v2.3.0"
@@ -209,9 +210,9 @@ kubectl patch storageclass piraeus-storage-replicated -p '{"metadata": {"annotat
 #kubectl edit StorageClass
 # добавляем вложеной стройчкой под annotations:
 #storageclass.kubernetes.io/is-default-class: "true"
+</pre>
 
-
-
+<pre>
 #установка postgres
 
 ###
